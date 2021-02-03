@@ -1,0 +1,22 @@
+th,
+td {
+  padding: 10px;
+  width: 20%;
+}
+
+.no-button-styles {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.no-button-styles:hover {
+  background-color: #000;
+  color: #fff;
+  transition: background-color 0.2s linear;
+  border-radius: 100%;
+}
+
+button:focus {
+  outline: none !important;
+}
