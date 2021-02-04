@@ -9,7 +9,9 @@ import Pagination from './pagination';
 class Movie extends Component {
     state = {
         movies: getMovies(),
-        moviesCount: countMovies()
+        moviesCount: countMovies(),
+        currentPage: 1,
+        pageSize: 4
     }
 
     handleDelete = (movieId) => {
@@ -28,9 +30,19 @@ class Movie extends Component {
         })
     }
 
+    handlePageChange = (page) => {
+        this.setState({
+            currentPage: page
+        })
+    }
+
     render() {
-        if (this.state.moviesCount === 0 ) return <p>No movies here!</p>
+        const { length: count } = this.state.movies;
+        const { pageSize, currentPage } = this.state;
         
+        if (this.state.moviesCount === 0 ) return <p>No movies here!</p>
+
+        //const movies = ...
         return (
             <div className="main">
                <div className="table">
@@ -66,7 +78,12 @@ class Movie extends Component {
                         </tbody>
                     </table>
                 </div>
-                <Pagination />
+                <Pagination 
+                    itemCount={count} 
+                    pageSize={pageSize} 
+                    onPageChange={this.handlePageChange}
+                    currentPage={currentPage}
+                />
             </div>
         );
     }
