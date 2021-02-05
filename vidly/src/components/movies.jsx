@@ -5,6 +5,8 @@ import { deleteMovie } from '../services/fakeMovieService';
 import { likeMovie } from '../services/fakeMovieService';
 import './movies.css';
 import Pagination from './pagination';
+import {paginate} from '../utils/paginate';
+import Filter from './filtering';
 
 class Movie extends Component {
     state = {
@@ -38,11 +40,11 @@ class Movie extends Component {
 
     render() {
         const { length: count } = this.state.movies;
-        const { pageSize, currentPage } = this.state;
+        const { pageSize, currentPage, movies } = this.state;
         
         if (this.state.moviesCount === 0 ) return <p>No movies here!</p>
 
-        //const movies = ...
+        const paginatedMovies = paginate(movies, currentPage, pageSize);
         return (
             <div className="main">
                <div className="table">
@@ -58,7 +60,7 @@ class Movie extends Component {
                         </tr>
                         </thead>
                         <tbody>
-                        {this.state.movies.map(movie => {
+                        {paginatedMovies.map(movie => {
                             return (
                             <tr key={movie._id}>
                                 <td key={movie.title}>{movie.title}</td>
