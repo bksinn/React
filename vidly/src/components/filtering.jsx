@@ -6,7 +6,6 @@ const Filter = (props) => {
 
     return (
         <div className="genre-list">
-            {console.warn(currentGenre)}
             <ul className="list-group">
             <li onClick={() => {onGenreChange(null)}} className={currentGenre ? "list-group-item" : "list-group-item active"} aria-current="true">All</li>
                 {movieGenres.map(genre => {
