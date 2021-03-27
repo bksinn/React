@@ -1,3 +1,7 @@
+@import "primereact/resources/themes/saga-blue/theme.css";
+@import "primereact/resources/primereact.min.css";
+@import "primeicons/primeicons.css";
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -13,7 +17,7 @@ code {
 }
 
 .app {
-  width: 95%;
+  width: 75%;
   margin: 0 auto;
   padding: 15px;
 }
@@ -29,7 +33,8 @@ h3 {
 
 h1 {
   margin: 25px auto 5px;
-  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid red;
 }
 
 p {
