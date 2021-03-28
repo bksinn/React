@@ -62,7 +62,7 @@ class App extends Component<AppProps, AppState> {
   }
 
   showFirstItem = () => {
-      const firstNewsItem = document.querySelectorAll(".collapsible legend a")[0]as HTMLElement;
+      const firstNewsItem = document.querySelectorAll(".collapsible legend a")[0] as HTMLElement;
       firstNewsItem.click();
   }
 

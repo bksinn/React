@@ -46,16 +46,16 @@ class TopNews extends React.Component<TopNewsProps, TopNewsState> {
   getTopNews() {
       //Need to encode uri before fetching
       this.newsSearchService.getTopUsNews()
-      .then((res:any) => {
-        const articles: NewsSearchResponse[] = res.articles;
-        this.setState({
-          newsSearchResponse: articles
+        .then((res:any) => {
+          const articles: NewsSearchResponse[] = res.articles;
+          this.setState({
+            newsSearchResponse: articles
+          })
+          sessionStorage.setItem("topUsNews", JSON.stringify(articles));
         })
-        sessionStorage.setItem("topUsNews", JSON.stringify(articles));
-      })
-      .catch((err:any) => {
-        console.error(err);
-      });
+        .catch((err:any) => {
+          console.error(err);
+        });
   }
 
   updateNewsSearch() {
